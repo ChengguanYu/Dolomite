@@ -1,27 +1,12 @@
 ﻿using dolomite_cli.app.Command;
-using dolomite_cli.app.util;
 
-namespace dolomite_cli;
+namespace dolomite_cli.app;
 
-public class App
+public static class App
 {
-    static int Main(string[] args)
+    public static void Run()
     {
-        Logger.Init();
-        try
-        {
-            var cm = CommandManager.inst;
-            cm.Run();
-            return 0;
-        }
-        catch (Exception ex)
-        {
-            Logger.Fatal(ex, "Application terminated unexpectedly");
-            return 1;
-        }
-        finally
-        {
-            Logger.CloseAndFlush();
-        }
+        var cm = CommandManager.inst;
+        cm.Run();
     }
 }
