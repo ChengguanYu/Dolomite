@@ -1,4 +1,4 @@
-﻿namespace dolomite_cli.app.Command;
+﻿namespace dolomite_cli.App.Command;
 
 public class CommandManager
 {   

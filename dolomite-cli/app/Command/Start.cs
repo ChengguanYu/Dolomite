@@ -1,6 +1,6 @@
-﻿using dolomite_cli.app.util;
+﻿using dolomite_cli.App.Util;
 
-namespace dolomite_cli.app.Command;
+namespace dolomite_cli.App.Command;
 
 enum StartFlag
 {

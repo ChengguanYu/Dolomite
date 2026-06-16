@@ -1,6 +1,6 @@
-﻿using dolomite_cli.app.Command;
+﻿using dolomite_cli.App.Command;
 
-namespace dolomite_cli.app;
+namespace dolomite_cli.App;
 
 public static class App
 {

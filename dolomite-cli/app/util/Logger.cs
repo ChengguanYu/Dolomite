@@ -1,7 +1,7 @@
 using Serilog;
 using Serilog.Events;
 
-namespace dolomite_cli.app.util;
+namespace dolomite_cli.App.Util;
 
 /// <summary>
 /// 全局日志工具类，封装 Serilog 提供统一的日志接口。
@@ -16,7 +16,7 @@ public static class Logger
     /// </summary>
     /// <param name="logDir">日志文件目录，默认 "logs"</param>
     /// <param name="minimumLevel">最低日志级别，默认 Information</param>
-    public static void Init(string logDir = "logs", LogEventLevel minimumLevel = LogEventLevel.Information)
+    public static void Init(string logDir = "Logs", LogEventLevel minimumLevel = LogEventLevel.Information)
     {
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Is(minimumLevel)
