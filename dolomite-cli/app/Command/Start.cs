@@ -2,21 +2,37 @@
 
 namespace dolomite_cli.App.Command;
 
-enum StartFlag
+/// <summary>
+/// Start 命令的 flag 标识（可选，用于类型安全）
+/// </summary>
+public static class StartFlags
 {
-    Env
+    public const string Env = "env";
 }
 
-public class Start:Command
+/// <summary>
+/// Start 命令：启动服务
+/// 用法: dolomite-cli Start [flags]
+/// 示例: dolomite-cli Start -e master
+/// </summary>
+public class Start : Command
 {
-    private Dictionary<StartFlag,string> _paramater = new Dictionary<StartFlag, string>();
     public Start(string[] args) : base(CommandType.Start)
     {
-        //解释参数
+        RegisterFlag(new FlagDefinition
+        {
+            Name = StartFlags.Env,
+            Aliases = ["-e", "--e"],
+            ParamType = typeof(string),
+            Description = "Environment name"
+        });
+
+        _flags = ParseFlags(args);
     }
+
     public override void Execute()
     {
-        // 实现处理逻辑
-        Logger.Info("Start Command");
+        var env = GetFlag(StartFlags.Env);
+        Logger.Info($"Start Command with env: {env?.Param ?? "default"}");
     }
 }

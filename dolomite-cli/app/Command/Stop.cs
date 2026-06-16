@@ -1,20 +1,33 @@
 ﻿using dolomite_cli.App.Util;
 
 namespace dolomite_cli.App.Command;
-// enum StopFlag
-// {
-//     
-// }
-public class Stop:Command
+
+/// <summary>
+/// Stop 命令的 flag 标识
+/// </summary>
+public static class StopFlags
 {
-    // private Dictionary<StartFlag,string> _paramater = new Dictionary<StartFlag, string>();
+    public const string Env = "env";
+}
+
+public class Stop : Command
+{
     public Stop(string[] args) : base(CommandType.Stop)
     {
-        //解释参数
+        RegisterFlag(new FlagDefinition
+        {
+            Name = StopFlags.Env,
+            Aliases = ["-e", "--e"],
+            ParamType = typeof(string),
+            Description = "Environment name"
+        });
+
+        _flags = ParseFlags(args);
     }
+
     public override void Execute()
     {
-        // 实现处理逻辑
-        Logger.Info("Stop Command");
+        var env = GetFlag(StopFlags.Env);
+        Logger.Info($"Stop Command with env: {env?.Param ?? "default"}");
     }
 }
