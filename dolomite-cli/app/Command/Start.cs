@@ -1,4 +1,6 @@
-﻿namespace dolomite_cli.app.Command;
+﻿using dolomite_cli.app.util;
+
+namespace dolomite_cli.app.Command;
 
 enum StartFlag
 {
@@ -15,6 +17,6 @@ public class Start:Command
     public override void Execute()
     {
         // 实现处理逻辑
-        Console.WriteLine("Start Command");
+        Logger.Info("Start Command");
     }
 }

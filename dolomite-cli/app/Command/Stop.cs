@@ -1,4 +1,6 @@
-﻿namespace dolomite_cli.app.Command;
+﻿using dolomite_cli.app.util;
+
+namespace dolomite_cli.app.Command;
 // enum StopFlag
 // {
 //     
@@ -13,6 +15,6 @@ public class Stop:Command
     public override void Execute()
     {
         // 实现处理逻辑
-        Console.WriteLine("Stop Command");
+        Logger.Info("Stop Command");
     }
 }
